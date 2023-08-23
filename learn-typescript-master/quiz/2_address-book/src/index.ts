@@ -12,9 +12,9 @@ interface Contact {
 
 // api
 // TODO: 아래 함수의 반환 타입을 지정해보세요.
-function fetchContacts(): Contact[] {
+function fetchContacts(): Promise<Contact[]> {
   // TODO: 아래 변수의 타입을 지정해보세요.
-  const contacts = [
+  const contacts: Contact[] = [
     {
       name: 'Tony',
       address: 'Malibu',
@@ -56,15 +56,13 @@ function fetchContacts(): Contact[] {
 
 // main
 class AddressBook {
-  // TODO: 아래 변수의 타입을 지정해보세요.
   contacts: Contact[] = [];
-
   constructor() {
     this.fetchData();
   }
 
-  fetchData(): void {
-    fetchContacts().then((response: Contact) => {
+  fetchData() {
+    fetchContacts().then((response) => {
       this.contacts = response;
     });
   }
