@@ -47,7 +47,7 @@ function fetchContacts(): Promise<Contact[]> {
       },
     },
   ];
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(() => resolve(contacts), 2000);
   });
 }
@@ -67,22 +67,22 @@ class AddressBook {
   }
 
   fetchData(): void {
-    fetchContacts().then((response) => {
+    fetchContacts().then(response => {
       this.contacts = response;
     });
   }
 
   findContactByName(name: string): Contact[] {
-    return this.contacts.filter((contact) => contact.name === name);
+    return this.contacts.filter(contact => contact.name === name);
   }
 
   findContactByAddress(address: string): Contact[] {
-    return this.contacts.filter((contact) => contact.address === address);
+    return this.contacts.filter(contact => contact.address === address);
   }
 
   findContactByPhone(phoneNumber: number, phoneType: PhoneType): Contact[] {
     return this.contacts.filter(
-      (contact) => contact.phones[phoneType].num === phoneNumber
+      contact => contact.phones[phoneType].num === phoneNumber
     );
   }
 
@@ -91,11 +91,11 @@ class AddressBook {
   }
 
   displayListByName(): string[] {
-    return this.contacts.map((contact) => contact.name);
+    return this.contacts.map(contact => contact.name);
   }
 
   displayListByAddress(): string[] {
-    return this.contacts.map((contact) => contact.address);
+    return this.contacts.map(contact => contact.address);
   }
   /* ------------------------------------------------ */
 }
